@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
 // Connecting With DataBase
 mongoose.connect(
