@@ -8,6 +8,7 @@ const cors = require("cors");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const orderRouter = require("./routes/order");
+const productRouter = require("./routes/product");
 
 const app = express();
 
@@ -35,6 +36,7 @@ mongoose.connect(
 mongoose.set("useCreateIndex", true);
 
 app.use("/api/v1/order", cors(), orderRouter);
+app.use("/api/v1/product", cors(), productRouter);
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 
