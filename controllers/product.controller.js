@@ -46,7 +46,7 @@ const productControllers = {
 
   getOne: async (req, res) => {
     try {
-      const result = await Product.findById(req.params.id);
+      const result = await Product.findOne({id: req.params.id});
       return res.status(200).json({ msg: "Resource found!", data: { product: result }  });
     } catch (err) {
       res.status(400).json({ msg: "There's an error" });
